@@ -239,7 +239,7 @@ extension UINavigationBar {
                                                    width: self.bounds.width,
                                                    height: self.bounds.height + statusBarHeight))
             self.ch_overlay!.isUserInteractionEnabled = false
-            self.ch_overlay!.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+            self.ch_overlay!.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         }
         self.isTranslucent = true
         self.insertSubview(self.ch_overlay!, at: 0)
@@ -316,7 +316,7 @@ extension UIWebView {
         
         
         self.scrollView.addSubview(headerView)
-        self.scrollView.bringSubview(toFront: headerView)
+        self.scrollView.bringSubviewToFront(headerView)
         
         //添加约束
         headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -325,14 +325,14 @@ extension UIWebView {
         self.scrollView.addConstraints(
             NSLayoutConstraint.constraints(
                 withVisualFormat: "H:|[headerView(\(browserCanvas.size.width))]|",
-                options: NSLayoutFormatOptions(),
+                options: NSLayoutConstraint.FormatOptions(),
                 metrics: nil,
                 views:["headerView": headerView]))
         
         self.scrollView.addConstraints(
             NSLayoutConstraint.constraints(
                 withVisualFormat: "V:|[headerView(\(height))]",
-                options: NSLayoutFormatOptions(),
+                options: NSLayoutConstraint.FormatOptions(),
                 metrics: nil,
                 views:["headerView": headerView]))
         
